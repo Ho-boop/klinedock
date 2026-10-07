@@ -1,5 +1,7 @@
 # KlineDock
 
+[![Checks](https://github.com/Ho-boop/klinedock/actions/workflows/ci.yml/badge.svg)](https://github.com/Ho-boop/klinedock/actions/workflows/ci.yml)
+
 **模块化交易与回测平台 · A modular trading and backtest workbench**
 
 An independently developed Python web application: market-data adapters, plugin-based strategies, local backtesting, simulated positions and interactive reports. The project was originally named Hydra Quant in the local workspace; this portfolio release uses KlineDock consistently.
@@ -7,6 +9,8 @@ An independently developed Python web application: market-data adapters, plugin-
 ## Run the offline demo
 
 ```bash
+git clone https://github.com/Ho-boop/klinedock.git KlineDock
+cd KlineDock
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
