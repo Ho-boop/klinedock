@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "klinedock"
+version = "0.1.0"
+description = "A modular market-data, strategy and backtest workbench"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = ["nicegui>=2,<4", "pandas>=2", "numpy>=1.24", "aiohttp>=3.9", "pyyaml>=6", "pydantic>=2", "pydantic-settings>=2", "python-dotenv>=1", "loguru>=0.7", "pyarrow>=14"]
+
+[project.scripts]
+klinedock = "src.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["src*"]

@@ -1,0 +1,32 @@
+{
+    "environment": "backtesting",
+    "algorithm-type-name": "BasicTemplateAlgorithm",
+    "algorithm-language": "Python",
+    "algorithm-location": "../../../Algorithm.Python/BasicTemplateAlgorithm.py",
+    "data-folder": "/Lean/Data",
+    "results-destination-folder": "/Results",
+    "log-handler": "ConsoleLogHandler",
+    "messaging-handler": "QuantConnect.Messaging.Messaging",
+    "job-user-id": "0",
+    "api-access-token": "",
+    "parameters": {},
+    "environments": {
+        "backtesting": {
+            "live-mode": false,
+            "setup-handler": "QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler",
+            "result-handler": "QuantConnect.Lean.Engine.Results.BacktestingResultHandler",
+            "data-feed-handler": "QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed",
+            "real-time-handler": "QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler",
+            "transaction-handler": "QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler"
+        },
+        "live-paper": {
+            "live-mode": true,
+            "live-mode-brokerage": "PaperBrokerage",
+            "setup-handler": "QuantConnect.Lean.Engine.Setup.BrokerageSetupHandler",
+            "result-handler": "QuantConnect.Lean.Engine.Results.LiveTradingResultHandler",
+            "data-feed-handler": "QuantConnect.Lean.Engine.DataFeeds.LiveTradingDataFeed",
+            "real-time-handler": "QuantConnect.Lean.Engine.RealTime.LiveTradingRealTimeHandler",
+            "transaction-handler": "QuantConnect.Lean.Engine.TransactionHandlers.BrokerageTransactionHandler"
+        }
+    }
+}

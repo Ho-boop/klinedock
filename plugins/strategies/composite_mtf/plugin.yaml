@@ -1,0 +1,11 @@
+name: composite_mtf
+version: 1.0.0
+type: strategy
+description: "多周期复合策略 (1D趋势, 4H结构, 15m形态) - 带有挂单与滑动风控管理"
+author: "hydra-system"
+entry_point: strategy.CompositeMultiTimeframeStrategy
+enabled: true
+parameters:
+  description: 
+    type: str
+    default: "暂无特定配置参数，多周期依赖内部逻辑获取。"

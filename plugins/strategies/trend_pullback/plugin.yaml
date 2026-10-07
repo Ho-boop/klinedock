@@ -1,0 +1,43 @@
+# 趋势回踩策略插件
+
+name: trend_pullback
+version: 1.0.0
+type: strategy
+author: AI Agent
+description: |
+  多时间级别顺势回踩策略
+  - 4H EMA20 > 50 > 200且ADX>20判断趋势
+  - 15m回踩EMA20，缩量且恢复阳线突破入场
+  - 多阶段止盈及ATR追踪止损
+
+dependencies:
+  indicators:
+    - ema
+    - atr
+    - adx
+
+parameters:
+  timeframe_ratio:
+    type: int
+    default: 16
+    range: [1, 240]
+    description: "4H相对于K线的倍数(15m为16)"
+  tp1_ratio:
+    type: float
+    default: 0.3
+    range: [0.1, 0.9]
+    description: "第一目标止盈减仓比例"
+  tp2_ratio:
+    type: float
+    default: 0.4
+    range: [0.1, 0.9]
+    description: "第二目标止盈减仓比例"
+  sl_atr_multiplier:
+    type: float
+    default: 1.2
+    range: [1.0, 5.0]
+    description: "最小止损ATR乘数"
+
+entry_point: strategy.TrendPullbackStrategy
+
+enabled: true

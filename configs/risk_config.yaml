@@ -1,0 +1,51 @@
+# KlineDock - 风控配置
+
+risk_controls:
+  # 仓位控制
+  position:
+    max_single_position_pct: 0.1      # 单标的最大仓位10%
+    max_total_exposure_pct: 0.8       # 总敞口不超过80%
+    max_leverage: 1.0                 # 现货阶段杠杆=1
+    min_order_value_usdt: 10          # 最小订单金额
+
+  # 回撤控制
+  drawdown:
+    daily_max_drawdown_pct: 0.03      # 日最大回撤3%
+    weekly_max_drawdown_pct: 0.08     # 周最大回撤8%
+    strategy_kill_drawdown_pct: 0.15  # 策略停止线15%
+
+  # 波动率熔断
+  volatility:
+    enabled: true
+    pause_volatility_threshold: 0.1   # 1小时波动>10%暂停
+    resume_volatility_threshold: 0.05 # 波动<5%恢复
+    check_interval_minutes: 5
+
+  # 订单控制
+  order:
+    max_order_value_usdt: 10000       # 单笔最大1万U
+    max_orders_per_minute: 20         # 每分钟最多20单
+    max_slippage_pct: 0.005           # 最大滑点0.5%
+    order_timeout_seconds: 30         # 订单超时时间
+
+  # 紧急控制
+  emergency:
+    kill_switch_enabled: true
+    auto_hedge_enabled: false
+    alert_channels:
+      - telegram
+    cooldown_minutes: 60              # 熔断后冷却时间
+
+# 告警阈值
+alerts:
+  pnl:
+    daily_loss_warning_pct: 0.02      # 日亏损2%警告
+    daily_loss_critical_pct: 0.03     # 日亏损3%严重
+  
+  execution:
+    slippage_warning_pct: 0.003       # 滑点0.3%警告
+    fill_rate_warning_pct: 0.8        # 成交率低于80%警告
+  
+  system:
+    latency_warning_ms: 500           # 延迟500ms警告
+    latency_critical_ms: 1000         # 延迟1s严重

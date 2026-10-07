@@ -1,0 +1,27 @@
+name: vwap_breakout
+version: 1.0.0
+type: strategy
+author: AI Agent
+description: |
+  多周期VWAP放量突破策略
+  - 1D 判定大趋势 (EMA20)
+  - 4H 判定中期结构 (突破前20根最高/最低)
+  - 15m 判定回踩VWAP并缩量
+  - 15m 判定实体饱满且突破前高/前低
+
+dependencies:
+  indicators:
+    - atr
+    - ema
+    - vwap
+
+parameters:
+  body_ratio_threshold:
+    type: float
+    default: 0.6
+    range: [0.1, 1.0]
+    description: "K线实体饱满度要求"
+
+entry_point: strategy.VwapBreakoutStrategy
+
+enabled: true

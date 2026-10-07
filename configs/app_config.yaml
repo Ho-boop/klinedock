@@ -1,0 +1,66 @@
+# KlineDock - 应用配置
+
+# 系统信息
+system:
+  name: KlineDock
+  version: 0.1.0
+  environment: development  # development / production
+
+# 交易配置
+trading:
+  # 默认交易对
+  default_symbols:
+    - BTCUSDT
+    - ETHUSDT
+    - BNBUSDT
+  
+  # 默认时间周期
+  default_timeframe: 1h
+  
+  # 订单类型
+  order_types:
+    - market
+    - limit
+    - stop_limit
+
+# 数据配置
+data:
+  # 历史数据保留天数
+  history_days: 365
+  
+  # K线时间周期
+  timeframes:
+    - 1m
+    - 5m
+    - 15m
+    - 1h
+    - 4h
+    - 1d
+  
+  # 数据质量检查
+  quality_check:
+    enabled: true
+    max_missing_ratio: 0.01  # 最大缺失比例1%
+    max_price_jump_pct: 0.2  # 最大价格跳变20%
+
+# 回测配置
+backtest:
+  # 初始资金
+  initial_capital: 100000
+  
+  # 手续费
+  commission:
+    type: percentage
+    value: 0.001  # 0.1%
+  
+  # 滑点
+  slippage:
+    type: percentage
+    value: 0.0005  # 0.05%
+
+# 日志配置
+logging:
+  level: INFO
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {module}:{function}:{line} - {message}"
+  rotation: "10 MB"
+  retention: "7 days"

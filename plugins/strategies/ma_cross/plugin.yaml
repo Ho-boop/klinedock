@@ -1,0 +1,40 @@
+# 双均线交叉策略示例插件
+
+name: ma_cross
+version: 1.0.0
+type: strategy
+author: KlineDock
+description: |
+  经典双均线交叉策略
+  - 快线上穿慢线时买入
+  - 快线下穿慢线时卖出
+
+# 依赖声明
+dependencies:
+  indicators:
+    - sma
+    - ema
+
+# 策略参数定义
+parameters:
+  fast_period:
+    type: int
+    default: 10
+    range: [5, 50]
+    description: 快线周期
+  slow_period:
+    type: int
+    default: 30
+    range: [20, 200]
+    description: 慢线周期
+  ma_type:
+    type: str
+    default: sma
+    options: [sma, ema]
+    description: 均线类型
+
+# 入口点
+entry_point: strategy.MACrossStrategy
+
+# 是否启用
+enabled: true
